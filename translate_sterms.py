@@ -36,13 +36,13 @@ def split_args(s):
 
 def replace_all(sexpr):
     new_expr = sexpr
-    to_replace = ["AND","EQ","LE","LT","MIN","MAX","OR","DIV","MUL","GT","MOD","PLUS","MINUS","GE","NOT","NE"]
-    by_replace = ["&&","==","<+","<","min","max","||","/","*",">","%","+","-",">=","!","!="]
+    to_replace = ["AND","EQ","LE","LT","MINUS","MIN","MAX","OR","DIV","MUL","GT","MOD","PLUS","GE","NOT","NE"]
+    by_replace = ["&&","==","<+","<","-","min","max","||","/","*",">","%","+",">=","!","!="]
+    for j in range(99, -1, -1):
+        new_expr = new_expr.replace("NUMNEG"+str(j), "(Constant (-" + str(j) + "))")
+        new_expr = new_expr.replace("NUM"+str(j), "(Constant "+ str(j) + ")")
     for i in range(len(to_replace)):
         new_expr = new_expr.replace(to_replace[i], by_replace[i])
-    for j in range(99, -1, -1):
-        new_expr.replace("NUMNEG"+str(j), "Constant(-" + str(j) + ")")
-        new_expr.replace("NUM"+str(j), "Constant("+ str(j) + ")")
     return new_expr
 
 def directories_tosexpr(directory):
@@ -50,12 +50,14 @@ def directories_tosexpr(directory):
         for j in range(10):
             for k in range(10):
                 for l in range(10):
-                    file = directory + str(i*1000+j*100+k*10+l) + ".txt"
-                    new_file = directory + "sexpr/" + str(i*1000+j*100+k*10+l) + ".txt"
+                    file = directory + str(i)+str(j)+str(k)+str(l) + ".txt"
+                    new_file = directory + "sexpr/" + str(i)+str(j)+str(k)+str(l) + ".txt"
                     with open(file, "r", encoding="utf-8") as f:
                         expr = f.readline()
                     sexpr = replace_all(to_sexpr(expr))
                     with open(new_file, "w", encoding="utf-8") as f:
                         f.write(sexpr)
 
-directories_tosexpr()
+directories_tosexpr("./random_caviar_size5000/")
+directories_tosexpr("./fixed_caviar_size5000/")
+
