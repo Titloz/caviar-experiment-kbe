@@ -78,4 +78,4 @@ def var_translation_funexpr(directory):
                     with open(new_file, "w", encoding="utf-8") as f:
                         f.write(s)
     
-var_translation_funexpr("./fixed_caviar_size500/funexpr/")
+var_translation_funexpr("./fixed_caviar_size5000/funexpr/")
