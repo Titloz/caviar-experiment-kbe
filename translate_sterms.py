@@ -43,39 +43,42 @@ def replace_all(sexpr):
         new_expr = new_expr.replace("NUM"+str(j), str(j))
     for i in range(len(to_replace)):
         new_expr = new_expr.replace(to_replace[i], by_replace[i])
+    new_expr = new_expr.replace("V","v")
     return new_expr
 
 def directories_tosexpr(directory):
-    for i in range(5):
-        for j in range(10):
-            for k in range(10):
-                for l in range(10):
-                    file = directory + "funexpr/" + str(i)+str(j)+str(k)+str(l) + ".txt"
-                    new_file = directory + "sexpr/" + str(i)+str(j)+str(k)+str(l) + ".txt"
-                    with open(file, "r", encoding="utf-8") as f:
-                        expr = f.readline()
-                    sexpr = replace_all(to_sexpr(expr))
-                    with open(new_file, "w", encoding="utf-8") as f:
-                        f.write(sexpr)
+    #for i in range(5):
+    for j in range(1):
+        for k in range(10):
+            for l in range(10):
+                file = directory + "data/" +str(j)+str(k)+str(l) +".txt" #+ str(i)
+                new_file = directory + "sexpr/"+str(j)+str(k)+str(l) + ".txt"#+ str(i)
+                with open(file, "r", encoding="utf-8") as f:
+                    expr = f.readline()
+                sexpr = replace_all(to_sexpr(expr))
+                with open(new_file, "w", encoding="utf-8") as f:
+                    f.write(sexpr)
 
 """directories_tosexpr("./random_caviar_size50/")
 directories_tosexpr("./fixed_caviar_size50/")"""
 
 def var_translation_funexpr(directory):
-    for i in range(5):
-        for j in range(10):
-            for k in range(10):
-                for l in range(10):
-                    filename = directory + str(i) +str(j)+str(k)+str(l)+".txt"
-                    new_file = directory + "vars_diff/"+ str(i) +str(j)+str(k)+str(l)+".txt"
-                    with open(filename, "r", encoding="utf-8") as f:
-                        s = f.readline()
-                        s = s.replace("v0","A")
-                        s = s.replace("v1","B")
-                        s = s.replace("v2","C")
-                        s = s.replace("v3","D")
-                        s = s.replace("v4","E")
-                    with open(new_file, "w", encoding="utf-8") as f:
-                        f.write(s)
+    #for i in range(5):
+    for j in range(1):
+        for k in range(10):
+            for l in range(10):
+                filename = directory + "0"+str(j)+str(k)+str(l)+".txt" # + str(i)
+                new_file = directory + "vars_diff/first100/"+str(j)+str(k)+str(l)+".txt" #+ str(i) 
+                with open(filename, "r", encoding="utf-8") as f:
+                    s = f.readline()
+                    s = s.replace("v0","A")
+                    s = s.replace("v1","B")
+                    s = s.replace("v2","C")
+                    s = s.replace("v3","D")
+                    s = s.replace("v4","E")
+                with open(new_file, "w", encoding="utf-8") as f:
+                    f.write(s)
     
-var_translation_funexpr("./fixed_caviar_size5000/funexpr/")
+#var_translation_funexpr("./fixed_caviar_size50/funexpr/")
+
+directories_tosexpr("./cavsize100/")
