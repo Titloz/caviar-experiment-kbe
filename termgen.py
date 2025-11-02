@@ -45,6 +45,101 @@ def generate_alt(n_nodes: int, n_inputs: int, operators: list[tuple[str, int]]):
             return sub
     return recurse(n_nodes)
                 
+bool_language = [("AND",2),("EQ",2),("NE",2),("LE",2),("LT",2),("MIN",2),("MAX",2),
+                ("OR",2),("GT",2),("GE",2),("NOT",1)] # boolean subpart of the caviar language
+int_language = ["PLUS","SUB","MUL","DIV","MOD","ABS"]
+
+def generate_typed_term(nb_nodes, nb_vars=5):
+    def random_bool_term(n):
+        if n==0:
+            b = random.choice(range(2))
+            if b:
+                k = random.choice(range(nb_vars))
+                return "v"+str(k)
+            else:
+                k = random.choice(range(1))
+                return "NUM"+str(k)
+        else:
+            op = random.choice(range(11))
+            if op==0:
+                #and
+                k = random.choice(range(n))
+                return "AND("+random_bool_term(k)+","+random_bool_term(n-1-k)+")"
+            elif op ==1:
+                #eq
+                k = random.choice(range(n))
+                return "EQ("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==2:
+                #ne
+                k = random.choice(range(n))
+                return "NE("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==3:
+                #le
+                k = random.choice(range(n))
+                return "LE("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==4:
+                #lt
+                k = random.choice(range(n))
+                return "LT("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==5:
+                #min
+                k = random.choice(range(n))
+                return "MIN("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==6:
+                #max
+                k = random.choice(range(n))
+                return "MAX("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==7:
+                #or
+                k = random.choice(range(n))
+                return "OR("+random_bool_term(k)+","+random_bool_term(n-1-k)+")"
+            elif op==8:
+                #gt
+                k = random.choice(range(n))
+                return "GT("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==9:
+                #ge
+                k = random.choice(range(n))
+                return "GE("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            else:
+                #not
+                return "NOT("+random_bool_term(n-1)+")"
+            
+    def random_int_term(n):
+        if n==0:
+            b = random.choice(range(2))
+            if b:
+                k = random.choice(range(nb_vars))
+                return "v"+str(k)
+            else:
+                k = random.choice(range(1))
+                return "NUM"+str(k)
+        else:
+            op = random.choice(range(6))
+            if op==0:
+                #abs
+                return "ABS("+random_int_term(n-1)+")"
+            elif op==1:
+                #add
+                k = random.choice(range(n))
+                return "PLUS("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==2:
+                #sub
+                k = random.choice(range(n))
+                return "SUB("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==3:
+                #mul
+                k = random.choice(range(n))
+                return "MUL("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            elif op==4:
+                #div
+                k = random.choice(range(n))
+                return "DIV("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+            else:
+                #mod 
+                k = random.choice(range(n))
+                return "MOD("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+    return random_bool_term(nb_nodes)
 
 """
 parser = argparse.ArgumentParser(description='Generate random terms')
@@ -74,13 +169,13 @@ def create_term_set_fixed(nb_terms, fixed_size, n_inputs, operators):
 """print(res_fixed)"""
 
 def write_files(directory, list_terms):
-    #for i in range(5):
-    for j in range(1):
-        for k in range(10):
-            for l in range(10):
-                filename = directory + str(j) + str(k) + str(l) + ".txt" #str(i) +
-                with open(filename, "w", encoding="utf-8") as f:
-                    f.write(list_terms[j*100+k*10+l]) #i*1000+
+    for i in range(5):
+        for j in range(10):
+            for k in range(10):
+                for l in range(10):
+                    filename = directory + str(i) + str(j) + str(k) + str(l) + ".txt" #str(i) +
+                    with open(filename, "w", encoding="utf-8") as f:
+                        f.write(list_terms[i*1000+j*100+k*10+l]) #i*1000+
 
 def create_term_caviarbased(caviar_directory, nb):
     # goal: generate a random term which has nb holes
@@ -137,5 +232,7 @@ def create_term_caviarbased(caviar_directory, nb):
 #write_files("./random_caviar_size5000/", res_random)
 #write_files("./fixed_caviar_size5000/", res_fixed)
 
-hundred_terms = [create_term_caviarbased("../caviar-study/cp-data/data/", 100) for _ in range(100)]
-write_files("./cavsize100/data/", hundred_terms)
+def generate_typed_terms(directory, nb_nodes, nb_vars=5):
+    return write_files(directory, [generate_typed_term(nb_nodes,nb_vars) for _ in range(5000)])
+
+generate_typed_terms("./typed_terms5000/funexpr/", 5000)
