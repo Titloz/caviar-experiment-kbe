@@ -109,4 +109,4 @@ def to_twee(directory):
         f.write(new_content)
                     
                     
-#directories_tosexpr("./typed_terms5000/")
+directories_tosexpr("./typed_terms5000/")
