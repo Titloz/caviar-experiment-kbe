@@ -232,4 +232,18 @@ def create_term_caviarbased(caviar_directory, nb):
 def generate_typed_terms(directory, nb_nodes, nb_vars=5):
     return write_files(directory, [generate_typed_term(nb_nodes,nb_vars) for _ in range(5000)])
 
-generate_typed_terms("./typed_terms5000/funexpr/", 5000)
+#generate_typed_terms("./typed_terms5000/funexpr/", 5000)
+
+parser = argparse.ArgumentParser(description='Generate random terms as functional expressions')
+parser.add_argument("directory", help="Directory/ in which terms are generated. Don't forget the /")
+parser.add_argument('-n', '--nodes', type=int, required=True, help='number of interior nodes')
+parser.add_argument('-v', '--vars', type=int, required=False, help='number of distinct variables')
+#parser.add_argument('-o', '--operators', type=str, required=True, help='operators with their arities (e.g. add:2,sub:2,neg:1)')
+args = parser.parse_args()
+
+directory = args.directory
+size = args.nodes
+if args.vars:
+    generate_typed_terms(directory, size, args.vars)
+else:
+    generate_typed_terms(directory, size)
