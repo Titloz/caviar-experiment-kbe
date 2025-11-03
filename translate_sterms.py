@@ -46,6 +46,17 @@ def replace_all(sexpr):
     #new_expr = new_expr.replace("V","v")
     return new_expr
 
+def replace_twee(funexpr):
+    new_expr = funexpr
+    to_replace = ["AND","EQ","LE","LT","MINUS","MIN","MAX","OR","DIV","MUL","GT","MOD","PLUS","GE","NOT","NE"]
+    by_replace = ["and","eq","le","lt","minus","min","max","or","div","mul","gt","mod","plus","ge","not","ne"]
+    for j in range(2):
+        new_expr = new_expr.replace("NUM"+str(j), "num"+str(j))
+    for i in range(len(to_replace)):
+        new_expr = new_expr.replace(to_replace[i], by_replace[i])
+    #new_expr = new_expr.replace("V","v")
+    return new_expr
+
 def directories_tosexpr(directory):
     for i in range(5):
         for j in range(10):
@@ -81,4 +92,21 @@ def var_translation_funexpr(directory):
     
 #var_translation_funexpr("./fixed_caviar_size50/funexpr/")
 
-directories_tosexpr("./typed_terms5000/")
+def to_twee(directory):
+    new_file = directory+"twee_terms.p"
+    new_content = ""
+    for i in range(5):
+        for j in range(10):
+            for k in range(10):
+                for l in range(10):
+                    c = 1000*i + 100*j + 10*l + l
+                    filename = directory+"funexpr/"+str(i)+str(j)+str(k)+str(l)+".txt"
+                    with open(filename, "r", encoding="utf-8") as f:
+                        term = f.readline()
+                    term = replace_twee(term)
+                    new_content += "cnf(" + str(c) +", conjecture, ("+term+" = foo))\n"
+    with open(new_file, "w", encoding="utf-8") as f:
+        f.write(new_content)
+                    
+                    
+#directories_tosexpr("./typed_terms5000/")

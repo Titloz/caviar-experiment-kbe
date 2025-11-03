@@ -47,18 +47,18 @@ def generate_alt(n_nodes: int, n_inputs: int, operators: list[tuple[str, int]]):
                 
 bool_language = [("AND",2),("EQ",2),("NE",2),("LE",2),("LT",2),("MIN",2),("MAX",2),
                 ("OR",2),("GT",2),("GE",2),("NOT",1)] # boolean subpart of the caviar language
-int_language = ["PLUS","SUB","MUL","DIV","MOD","ABS"]
+int_language = ["PLUS","MINUS","MUL","DIV","MOD"]
 
 def generate_typed_term(nb_nodes, nb_vars=5):
     def random_bool_term(n):
         if n==0:
-            b = random.choice(range(2))
-            if b:
-                k = random.choice(range(nb_vars))
-                return "v"+str(k)
-            else:
-                k = random.choice(range(1))
-                return "NUM"+str(k)
+            #b = random.choice(range(2))
+            #if b:
+            k = random.choice(range(nb_vars))
+            return "v"+str(k)
+            #else:
+            #    k = random.choice(range(1))
+            #    return "NUM"+str(k)
         else:
             op = random.choice(range(11))
             if op==0:
@@ -107,18 +107,19 @@ def generate_typed_term(nb_nodes, nb_vars=5):
             
     def random_int_term(n):
         if n==0:
-            b = random.choice(range(2))
-            if b:
-                k = random.choice(range(nb_vars))
-                return "v"+str(k)
-            else:
-                k = random.choice(range(1))
-                return "NUM"+str(k)
+            #b = random.choice(range(2))
+            #if b:
+            k = random.choice(range(nb_vars))
+            return "v"+str(k)
+            #else:
+            #    k = random.choice(range(1))
+            #    return "NUM"+str(k)
         else:
-            op = random.choice(range(6))
+            op = random.choice(range(5))
             if op==0:
-                #abs
-                return "ABS("+random_int_term(n-1)+")"
+                #div
+                k = random.choice(range(n))
+                return "DIV("+random_int_term(k)+","+random_int_term(n-1-k)+")"
             elif op==1:
                 #add
                 k = random.choice(range(n))
@@ -126,15 +127,11 @@ def generate_typed_term(nb_nodes, nb_vars=5):
             elif op==2:
                 #sub
                 k = random.choice(range(n))
-                return "SUB("+random_int_term(k)+","+random_int_term(n-1-k)+")"
+                return "MINUS("+random_int_term(k)+","+random_int_term(n-1-k)+")"
             elif op==3:
                 #mul
                 k = random.choice(range(n))
                 return "MUL("+random_int_term(k)+","+random_int_term(n-1-k)+")"
-            elif op==4:
-                #div
-                k = random.choice(range(n))
-                return "DIV("+random_int_term(k)+","+random_int_term(n-1-k)+")"
             else:
                 #mod 
                 k = random.choice(range(n))
