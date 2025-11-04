@@ -52,13 +52,13 @@ int_language = ["PLUS","MINUS","MUL","DIV","MOD"]
 def generate_typed_term(nb_nodes, nb_vars=5):
     def random_bool_term(n):
         if n==0:
-            #b = random.choice(range(2))
-            #if b:
-            k = random.choice(range(nb_vars))
-            return "v"+str(k)
-            #else:
-            #    k = random.choice(range(1))
-            #    return "NUM"+str(k)
+            b = random.choice(range(2))
+            if b:
+                k = random.choice(range(nb_vars))
+                return "v"+str(k)
+            else:
+                k = random.choice(range(2))
+                return "NUM"+str(k)
         else:
             op = random.choice(range(11))
             if op==0:
@@ -107,13 +107,13 @@ def generate_typed_term(nb_nodes, nb_vars=5):
             
     def random_int_term(n):
         if n==0:
-            #b = random.choice(range(2))
-            #if b:
-            k = random.choice(range(nb_vars))
-            return "v"+str(k)
-            #else:
-            #    k = random.choice(range(1))
-            #    return "NUM"+str(k)
+            b = random.choice(range(2))
+            if b:
+                k = random.choice(range(nb_vars))
+                return "v"+str(k)
+            else:
+                k = random.choice(range([-100,101]))
+                return "NUM"+str(k)
         else:
             op = random.choice(range(5))
             if op==0:

@@ -1,0 +1,320 @@
+Generated goals:
+  cnf(goal,axiom, goal4 = minus(v4,v2)).
+  cnf(goal,axiom, goal7 = mod(v2,v0)).
+  cnf(goal,axiom, goal6 = mul(v2,goal7)).
+  cnf(goal,axiom, goal5 = mod(v4,goal6)).
+  cnf(goal,axiom, goal3 = minus(goal4,goal5)).
+  cnf(goal,axiom, goal8 = plus(v2,v4)).
+  cnf(goal,axiom, goal2 = div(goal3,goal8)).
+  cnf(goal,axiom, goal12 = minus(v2,v2)).
+  cnf(goal,axiom, goal13 = mod(v4,v2)).
+  cnf(goal,axiom, goal11 = div(goal12,goal13)).
+  cnf(goal,axiom, goal18 = minus(v4,v1)).
+  cnf(goal,axiom, goal19 = mul(v0,v3)).
+  cnf(goal,axiom, goal17 = mod(goal18,goal19)).
+  cnf(goal,axiom, goal21 = mod(v0,v3)).
+  cnf(goal,axiom, goal20 = div(goal21,v0)).
+  cnf(goal,axiom, goal16 = mul(goal17,goal20)).
+  cnf(goal,axiom, goal24 = plus(v2,v1)).
+  cnf(goal,axiom, goal23 = minus(goal24,v0)).
+  cnf(goal,axiom, goal22 = plus(v1,goal23)).
+  cnf(goal,axiom, goal15 = plus(goal16,goal22)).
+  cnf(goal,axiom, goal28 = mod(v3,v4)).
+  cnf(goal,axiom, goal27 = div(goal28,v1)).
+  cnf(goal,axiom, goal26 = mul(v2,goal27)).
+  cnf(goal,axiom, goal29 = mul(v3,v3)).
+  cnf(goal,axiom, goal25 = plus(goal26,goal29)).
+  cnf(goal,axiom, goal14 = minus(goal15,goal25)).
+  cnf(goal,axiom, goal10 = mod(goal11,goal14)).
+  cnf(goal,axiom, goal35 = plus(v4,v0)).
+  cnf(goal,axiom, goal34 = plus(v1,goal35)).
+  cnf(goal,axiom, goal37 = plus(v3,v0)).
+  cnf(goal,axiom, goal36 = minus(v0,goal37)).
+  cnf(goal,axiom, goal33 = plus(goal34,goal36)).
+  cnf(goal,axiom, goal32 = mul(v4,goal33)).
+  cnf(goal,axiom, goal39 = plus(v1,v2)).
+  cnf(goal,axiom, goal41 = div(v3,v3)).
+  cnf(goal,axiom, goal40 = mul(v3,goal41)).
+  cnf(goal,axiom, goal38 = plus(goal39,goal40)).
+  cnf(goal,axiom, goal31 = plus(goal32,goal38)).
+  cnf(goal,axiom, goal46 = minus(v4,v2)).
+  cnf(goal,axiom, goal45 = plus(v4,goal46)).
+  cnf(goal,axiom, goal44 = mul(goal45,v3)).
+  cnf(goal,axiom, goal47 = div(v2,v4)).
+  cnf(goal,axiom, goal43 = mul(goal44,goal47)).
+  cnf(goal,axiom, goal42 = mod(goal43,v1)).
+  cnf(goal,axiom, goal30 = mul(goal31,goal42)).
+  cnf(goal,axiom, goal9 = div(goal10,goal30)).
+  cnf(goal,axiom, goal1 = minus(goal2,goal9)).
+  cnf(goal,axiom, goal49 = mod(v3,v3)).
+  cnf(goal,axiom, goal48 = mod(goal49,v4)).
+  cnf(goal,axiom, goal0 = gt(goal1,goal48)).
+  cnf(goal,conjecture, zero = one).
+Substitutions found:
+num0 -> goal12
+goal39 -> goal24
+goal46 -> goal4
+not(num1) -> goal12
+plus(goal4, v4) -> goal45
+plus(v4, v2) -> goal8
+plus(v0, v4) -> goal35
+plus(v0, v3) -> goal37
+plus(v1, v2) -> goal24
+plus(goal16, goal22) -> goal15
+plus(goal24, goal40) -> goal38
+plus(goal23, v1) -> goal22
+plus(goal26, goal29) -> goal25
+plus(goal35, v1) -> goal34
+plus(goal34, goal36) -> goal33
+plus(goal32, goal38) -> goal31
+mul(X, goal12) -> goal12
+mul(goal7, v2) -> goal6
+mul(v0, v3) -> goal19
+mul(goal12, X) -> goal12
+mul(v3, v3) -> goal29
+mul(goal17, goal20) -> goal16
+mul(goal27, v2) -> goal26
+mul(goal33, v4) -> goal32
+mul(goal41, v3) -> goal40
+mul(goal31, goal42) -> goal30
+mul(goal45, v3) -> goal44
+mul(goal44, goal47) -> goal43
+ne(X, X) -> goal12
+mod(X, num1) -> goal12
+mod(v4, v2) -> goal13
+mod(v4, goal6) -> goal5
+mod(v2, v0) -> goal7
+mod(v0, v3) -> goal21
+mod(goal11, goal14) -> goal10
+mod(goal18, goal19) -> goal17
+mod(v3, v4) -> goal28
+mod(v3, v3) -> goal49
+mod(goal43, v1) -> goal42
+mod(goal49, v4) -> goal48
+and(X, goal12) -> goal12
+and(goal12, X) -> goal12
+div(v2, v4) -> goal47
+div(goal3, goal8) -> goal2
+div(goal12, goal13) -> goal11
+div(v3, v3) -> goal41
+div(goal21, v0) -> goal20
+div(goal28, v1) -> goal27
+div(goal10, goal30) -> goal9
+lt(X, X) -> goal12
+gt(X, X) -> goal12
+gt(goal1, goal48) -> goal0
+minus(goal4, goal5) -> goal3
+minus(v4, v2) -> goal4
+minus(v4, v1) -> goal18
+minus(v2, v2) -> goal12
+minus(v0, goal37) -> goal36
+minus(goal6, goal6) -> goal12
+minus(goal8, goal24) -> goal18
+minus(goal2, goal9) -> goal1
+minus(goal24, v0) -> goal23
+minus(goal15, goal25) -> goal14
+minus(goal26, goal26) -> goal12
+minus(goal25, goal26) -> goal29
+and(X, not(X)) -> goal12
+if(goal12, num1, goal12) -> goal12
+ne(goal8, plus(goal18, goal24)) -> goal12
+ne(goal12, minus(X, X)) -> goal12
+if(goal12, not(goal0), goal12) -> goal12
+if(is_not_zero(num1), goal12, goal12) -> goal12
+if(is_not_zero(v4), goal47, goal47) -> goal47
+if(is_not_zero(v0), goal20, goal20) -> goal20
+if(is_not_zero(goal8), goal2, goal2) -> goal2
+if(is_not_zero(goal13), goal11, goal11) -> goal11
+if(is_not_zero(v1), goal27, goal27) -> goal27
+if(is_not_zero(v3), num1, goal41) -> goal41
+if(is_not_zero(v3), goal12, goal49) -> goal49
+if(is_not_zero(v3), goal41, goal41) -> goal41
+if(is_not_zero(goal30), goal9, goal9) -> goal9
+if(not(goal0), goal12, goal12) -> goal12
+if(is_const_neg(X), goal12, goal12) -> goal12
+if(is_const_neg(goal12), num1, goal12) -> goal12
+if(is_const_pos(X), goal12, goal12) -> goal12
+if(is_const_pos(v4), goal47, goal47) -> goal47
+if(is_const_pos(goal7), goal6, goal6) -> goal6
+if(is_const_pos(v0), goal19, goal19) -> goal19
+if(is_const_pos(v0), goal20, goal20) -> goal20
+if(is_const_pos(goal8), goal2, goal2) -> goal2
+if(is_const_pos(goal12), num1, goal12) -> goal12
+if(is_const_pos(goal13), goal11, goal11) -> goal11
+if(is_const_pos(v1), goal27, goal27) -> goal27
+if(is_const_pos(v3), goal29, goal29) -> goal29
+if(is_const_pos(v3), goal41, goal41) -> goal41
+if(is_const_pos(goal17), goal16, goal16) -> goal16
+if(is_const_pos(goal27), goal26, goal26) -> goal26
+if(is_const_pos(goal33), goal32, goal32) -> goal32
+if(is_const_pos(goal41), goal40, goal40) -> goal40
+if(is_const_pos(goal31), goal30, goal30) -> goal30
+if(is_const_pos(goal45), goal44, goal44) -> goal44
+if(is_const_pos(goal44), goal43, goal43) -> goal43
+if(is_const_pos(goal30), goal9, goal9) -> goal9
+max(goal8, plus(goal18, goal24)) -> goal8
+max(goal12, minus(X, X)) -> goal12
+gt(X, max(X, Y)) -> goal12
+gt(X, max(Y, X)) -> goal12
+gt(goal8, plus(goal18, goal24)) -> goal12
+gt(goal12, minus(X, X)) -> goal12
+gt(goal36, minus(goal12, v3)) -> goal12
+gt(min(X, Y), X) -> goal12
+gt(min(X, Y), Y) -> goal12
+gt(minus(X, X), goal12) -> goal12
+minus(goal5, minus(goal5, goal3)) -> goal3
+minus(goal8, plus(v2, v2)) -> goal4
+minus(goal8, minus(v2, v0)) -> goal35
+minus(goal18, minus(v1, v1)) -> goal18
+minus(goal24, minus(v2, goal23)) -> goal22
+minus(goal24, minus(v2, goal35)) -> goal34
+minus(goal23, minus(v0, v0)) -> goal23
+minus(goal25, minus(goal25, goal14)) -> goal14
+minus(goal37, minus(goal37, goal36)) -> goal36
+minus(goal9, minus(goal9, goal1)) -> goal1
+and(X, not(or(X, Y))) -> goal12
+and(X, and(Y, not(X))) -> goal12
+and(X, and(not(X), Y)) -> goal12
+and(X, not(or(Y, X))) -> goal12
+if(goal12, eq(X, Y), goal12) -> goal12
+if(goal12, ge(X, Y), goal12) -> goal12
+if(ge(X, Y), goal12, goal12) -> goal12
+ne(X, minus(X, minus(Y, Y))) -> goal12
+and(ne(X, Y), eq(X, Y)) -> goal12
+and(ge(X, Y), gt(Y, X)) -> goal12
+gt(X, max(Y, max(X, Z))) -> goal12
+gt(X, minus(X, minus(Y, Y))) -> goal12
+gt(min(X, Y), max(X, Z)) -> goal12
+gt(min(X, Y), max(Z, Y)) -> goal12
+gt(min(X, Y), max(Z, X)) -> goal12
+gt(min(X, Y), max(Y, Z)) -> goal12
+minus(min(goal12, numneg1), min(goal12, numneg1)) -> goal12
+Resolving goal12 -> num0
+Resolving goal12 -> gt(X, X)
+Resolving goal12 -> lt(X, X)
+Resolving goal12 -> ne(X, X)
+Resolving goal12 -> not(num1)
+Resolving goal13 -> mod(v4, v2)
+Resolving goal19 -> mul(v0, v3)
+Resolving goal21 -> mod(v0, v3)
+Resolving goal28 -> mod(v3, v4)
+Resolving goal29 -> mul(v3, v3)
+Resolving goal41 -> div(v3, v3)
+Resolving goal47 -> div(v2, v4)
+Resolving goal49 -> mod(v3, v3)
+Resolving goal7 -> mod(v2, v0)
+Resolving goal12 -> mod(X, num1)
+Resolving goal24 -> plus(v1, v2)
+Resolving goal35 -> plus(v0, v4)
+Resolving goal37 -> plus(v0, v3)
+Resolving goal8 -> plus(v4, v2)
+Resolving goal12 -> minus(v2, v2)
+Resolving goal18 -> minus(v4, v1)
+Resolving goal4 -> minus(v4, v2)
+Resolving goal12 -> and(X, not(X))
+Resolving goal12 -> gt(X, max(X, Y))
+Resolving goal12 -> gt(X, max(Y, X))
+Resolving goal12 -> gt(min(X, Y), X)
+Resolving goal12 -> gt(min(X, Y), Y)
+Resolving goal20 -> div(mod(v0,v3),v0)
+Resolving goal27 -> div(mod(v3,v4),v1)
+Resolving goal40 -> mul(div(v3,v3),v3)
+Resolving goal48 -> mod(mod(v3,v3),v4)
+Resolving goal6 -> mul(mod(v2,v0),v2)
+Resolving goal11 -> div(num0,mod(v4,v2))
+Resolving goal34 -> plus(plus(v0,v4),v1)
+Resolving goal12 -> and(X, not(or(X, Y)))
+Resolving goal12 -> and(X, not(or(Y, X)))
+Resolving goal23 -> minus(plus(v1,v2),v0)
+Resolving goal36 -> minus(v0,plus(v0,v3))
+Resolving goal45 -> plus(minus(v4,v2),v4)
+Resolving goal12 -> and(X, and(Y, not(X)))
+Resolving goal12 -> and(X, and(not(X), Y))
+Resolving goal12 -> and(ge(X, Y), gt(Y, X))
+Resolving goal12 -> and(ne(X, Y), eq(X, Y))
+Resolving goal12 -> gt(X, max(Y, max(X, Z)))
+Resolving goal12 -> gt(min(X, Y), max(X, Z))
+Resolving goal12 -> gt(min(X, Y), max(Y, Z))
+Resolving goal12 -> gt(min(X, Y), max(Z, X))
+Resolving goal12 -> gt(min(X, Y), max(Z, Y))
+Resolving goal26 -> mul(div(mod(v3,v4),v1),v2)
+Resolving goal5 -> mod(v4,mul(mod(v2,v0),v2))
+Resolving goal12 -> gt(X, minus(X, minus(Y, Y)))
+Resolving goal12 -> ne(X, minus(X, minus(Y, Y)))
+Resolving goal17 -> mod(minus(v4,v1),mul(v0,v3))
+Resolving goal44 -> mul(plus(minus(v4,v2),v4),v3)
+Resolving goal18 -> minus(plus(v4,v2),plus(v1,v2))
+Resolving goal22 -> plus(minus(plus(v1,v2),v0),v1)
+Resolving goal4 -> minus(plus(v4,v2),plus(v2,v2))
+Resolving goal38 -> plus(plus(v1,v2),mul(div(v3,v3),v3))
+Resolving goal34 -> minus(plus(v1,v2),minus(v2,plus(v0,v4)))
+Resolving goal25 -> plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3))
+Resolving goal43 -> mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4))
+Resolving goal3 -> minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2)))
+Resolving goal33 -> plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3)))
+Resolving goal22 -> minus(plus(v1,v2),minus(v2,minus(plus(v1,v2),v0)))
+Resolving goal16 -> mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0))
+Resolving goal42 -> mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)
+Resolving goal32 -> mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4)
+Resolving goal2 -> div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2))
+Resolving goal15 -> plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1))
+Resolving goal31 -> plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3)))
+Resolving goal14 -> minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))
+Resolving goal30 -> mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1))
+Resolving goal10 -> mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3))))
+Resolving goal9 -> div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)))
+Resolving goal1 -> minus(div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2)),div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1))))
+Resolving goal0 -> gt(minus(div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2)),div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)))),mod(mod(v3,v3),v4))
+
+Final substitutions:
+  goal12 -> num0
+  goal13 -> mod(v4, v2)
+  goal19 -> mul(v0, v3)
+  goal21 -> mod(v0, v3)
+  goal28 -> mod(v3, v4)
+  goal29 -> mul(v3, v3)
+  goal41 -> div(v3, v3)
+  goal47 -> div(v2, v4)
+  goal49 -> mod(v3, v3)
+  goal7 -> mod(v2, v0)
+  goal24 -> plus(v1, v2)
+  goal35 -> plus(v0, v4)
+  goal37 -> plus(v0, v3)
+  goal8 -> plus(v4, v2)
+  goal18 -> minus(v4, v1)
+  goal4 -> minus(v4, v2)
+  goal20 -> div(mod(v0,v3),v0)
+  goal27 -> div(mod(v3,v4),v1)
+  goal40 -> mul(div(v3,v3),v3)
+  goal48 -> mod(mod(v3,v3),v4)
+  goal6 -> mul(mod(v2,v0),v2)
+  goal11 -> div(num0,mod(v4,v2))
+  goal34 -> plus(plus(v0,v4),v1)
+  goal23 -> minus(plus(v1,v2),v0)
+  goal36 -> minus(v0,plus(v0,v3))
+  goal45 -> plus(minus(v4,v2),v4)
+  goal26 -> mul(div(mod(v3,v4),v1),v2)
+  goal5 -> mod(v4,mul(mod(v2,v0),v2))
+  goal17 -> mod(minus(v4,v1),mul(v0,v3))
+  goal44 -> mul(plus(minus(v4,v2),v4),v3)
+  goal22 -> plus(minus(plus(v1,v2),v0),v1)
+  goal38 -> plus(plus(v1,v2),mul(div(v3,v3),v3))
+  goal25 -> plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3))
+  goal43 -> mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4))
+  goal3 -> minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2)))
+  goal33 -> plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3)))
+  goal16 -> mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0))
+  goal42 -> mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)
+  goal32 -> mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4)
+  goal2 -> div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2))
+  goal15 -> plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1))
+  goal31 -> plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3)))
+  goal14 -> minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))
+  goal30 -> mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1))
+  goal10 -> mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3))))
+  goal9 -> div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)))
+  goal1 -> minus(div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2)),div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1))))
+  goal0 -> gt(minus(div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2)),div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)))),mod(mod(v3,v3),v4))
+
+Resolved term for goal0:
+gt(minus(div(minus(minus(v4,v2),mod(v4,mul(mod(v2,v0),v2))),plus(v4,v2)),div(mod(div(num0,mod(v4,v2)),minus(plus(mul(mod(minus(v4,v1),mul(v0,v3)),div(mod(v0,v3),v0)),plus(minus(plus(v1,v2),v0),v1)),plus(mul(div(mod(v3,v4),v1),v2),mul(v3,v3)))),mul(plus(mul(plus(plus(plus(v0,v4),v1),minus(v0,plus(v0,v3))),v4),plus(plus(v1,v2),mul(div(v3,v3),v3))),mod(mul(mul(plus(minus(v4,v2),v4),v3),div(v2,v4)),v1)))),mod(mod(v3,v3),v4))

@@ -10,7 +10,7 @@ else
 fi
 
 # start a new neuralcoder/twee container for each run
-RUN_CMD="sudo docker run --rm -i neuralcoder/twee:latest"
+RUN_CMD="sudo docker run --rm -i neuralcoder/twee:latest " #-v ~/arpe/caviar_random_terms:/
 
 # Execute 'twee' inside the container, but wrapped with the 'timeout' command.
 if [ "$TIMEOUT_SECONDS" -eq 0 ]; then

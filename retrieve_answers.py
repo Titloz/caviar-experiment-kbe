@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt 
+import numpy as np
 
 def get_size(sexpr):
     # works also with funexpr
@@ -55,6 +56,94 @@ def count_rules(s):
         if c == '\n':
             counter += 1
     return counter
+
+def result_twee(directory):
+    new_list = []
+    for i in range(5):
+        for j in range(10):
+            for k in range(10):
+                for l in range(10):
+                    filename = directory+str(i)+str(j)+str(k)+str(l)+".txt"
+                    with open(filename, "r", encoding="utf-8") as f:
+                        contents = f.read()
+                    ind = contents.rfind("Resolved term for goal0:")
+                    if ind==-1:
+                        new_list.append((1000*i+100*j+10*k+l,-1))
+                    else:
+                        opt_term = contents[ind+len("Resolved term for goal0:"):]
+                        size = get_size(opt_term)
+                        new_list.append((1000*i+100*j+10*k+l, size))
+    return new_list
+                    
+def filter_notoptimized_twee(list):
+    nl = []
+    c = 0
+    for el in list:
+        i, size = el 
+        if size != -1:
+            nl.append(el) 
+        else:
+            c+=1
+    return (nl,c)
+
+def pi2(l):
+    return [y for x,y in l]
+
+def mean(l: list):
+    length = len(l)
+    sum = 0
+    for n in l:
+        sum += n 
+    return sum/length
+
+def median(l: list):
+    length = len(l)
+    l.sort()
+    return l[length//2]
+
+def min(l):
+    m = l[0]
+    for el in l:
+        if el < m:
+            m = el 
+    return m
+
+def count_success(l):
+    c = 0
+    for el in l:
+        if el==0:
+            c+=1
+    return c
+
+def print_twee():
+    l50, c50 = filter_notoptimized_twee(result_twee("./typed_terms50/result_twee/"))
+    l100, c100 = filter_notoptimized_twee(result_twee("./typed_terms100/result_twee/"))
+    l500, c500 = filter_notoptimized_twee(result_twee("./typed_terms500/result_twee/"))
+    l1000, c1000 = filter_notoptimized_twee(result_twee("./typed_terms1000/result_twee/"))
+    print(f"For 5000 terms of size 50, given 1s, twee couldn't optimize {c50} terms\n")
+    print(f"For 5000 terms of size 100, given 1s, twee couldn't optimize {c100} terms\n")
+    print(f"For 5000 terms of size 500, given 1s, twee couldn't optimize {c500} terms\n")
+    print(f"For 5000 terms of size 1000, given 1s, twee couldn't optimize {c1000} terms\n")
+    l50 = pi2(l50)
+    l100 = pi2(l100)
+    l500 = pi2(l500)
+    l1000 = pi2(l1000)
+    mean50 = mean(l50)
+    med50 = median(l50)
+    mean100 = mean(l100)
+    med100 = median(l100)
+    mean500 = mean(l500)
+    med500 = median(l500)
+    mean1000 = mean(l1000)
+    med1000 = median(l1000)
+    cs50 = count_success(l50)
+    cs100 = count_success(l100)
+    cs500 = count_success(l500)
+    cs1000 = count_success(l1000)
+    print(f"For 5000 terms of size 50, the mean size is {mean50}, the median {med50} and the best optimization is {min(l50)}, cs:{cs50}\n")
+    print(f"For 5000 terms of size 100, the mean size is {mean100}, the median {med100} and the best optimization is {min(l100)}, cs:{cs100}\n")
+    print(f"For 5000 terms of size 500, the mean size is {mean500}, the median {med500} and the best optimization is {min(l500)}, cs:{cs500}\n")
+    print(f"For 5000 terms of size 1000, the mean size is {mean1000}, the median {med1000} and the best optimization is {min(l1000)}, cs:{cs1000}\n")
 
 #p1 = runner_report("./fixed_caviar_size50/sexpr/caviar_result_1s", 2316, 1)
 #p2 = runner_report("./fixed_caviar_size50/sexpr/caviar_result_1s_part2", 1054, 2317)
@@ -196,10 +285,12 @@ def pi1_4(l):
 #plot_sizes(filter_byrules(pi1_3(result_kbe("./cavsize100/result-kbe30/",[(i+1,-1) for i in range(33)]))),2000)
 
 
-caviar_result  = runner_report("./cavsize100/sexpr/caviar_result_30s", 33, 1)
-endlist = result_kbe("./cavsize100/result-kbe30/", caviar_result)
-stats, cause_caviar, cause_kbe, total = filter_count_notusable(endlist)
-generate_plot(stats, cause_caviar, cause_kbe, total, 20)
+#caviar_result  = runner_report("./cavsize100/sexpr/caviar_result_30s", 33, 1)
+#endlist = result_kbe("./cavsize100/result-kbe30/", caviar_result)
+#stats, cause_caviar, cause_kbe, total = filter_count_notusable(endlist)
+#generate_plot(stats, cause_caviar, cause_kbe, total, 20)
 
 # maybe generate a csv file with the right informations, as
 # the list basically
+
+print_twee()
