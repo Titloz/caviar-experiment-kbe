@@ -53,13 +53,16 @@ def replace_twee(funexpr):
     by_replace = ["and","eq","le","lt","minus","min","max","or","div","mul","gt","mod","plus","ge","not","ne"]
     #for j in range(2):
     #    new_expr = new_expr.replace("NUM"+str(j), "num"+str(j))
+    for j in range(99, -1, -1):
+        new_expr = new_expr.replace("NUMNEG"+str(j), "numneg" + str(j))
+        new_expr = new_expr.replace("NUM"+str(j), "num"+str(j))
     for i in range(len(to_replace)):
         new_expr = new_expr.replace(to_replace[i], by_replace[i])
     #new_expr = new_expr.replace("V","v")
     return new_expr
 
 def directories_tosexpr(directory):
-    for i in range(5):
+    for i in range(1): #5
         for j in range(10):
             for k in range(10):
                 for l in range(10):
@@ -96,7 +99,7 @@ def var_translation_funexpr(directory):
 def to_twee(directory):
     #new_file = directory+"twee_terms.p"
     #new_content = ""
-    for i in range(5):
+    for i in range(1): #5
         for j in range(10):
             for k in range(10):
                 for l in range(10):

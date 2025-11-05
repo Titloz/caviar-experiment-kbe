@@ -112,8 +112,12 @@ def generate_typed_term(nb_nodes, nb_vars=5):
                 k = random.choice(range(nb_vars))
                 return "v"+str(k)
             else:
-                k = random.choice(range([-100,101]))
-                return "NUM"+str(k)
+                k = random.choice(range(100))
+                pos = random.choice(range(2))
+                if pos:
+                    return "NUM"+str(k)
+                else:
+                    return "NUMNEG"+str(k)
         else:
             op = random.choice(range(5))
             if op==0:
@@ -166,7 +170,7 @@ def create_term_set_fixed(nb_terms, fixed_size, n_inputs, operators):
 """print(res_fixed)"""
 
 def write_files(directory, list_terms):
-    for i in range(5):
+    for i in range(1): #5
         for j in range(10):
             for k in range(10):
                 for l in range(10):
@@ -230,7 +234,7 @@ def create_term_caviarbased(caviar_directory, nb):
 #write_files("./fixed_caviar_size5000/", res_fixed)
 
 def generate_typed_terms(directory, nb_nodes, nb_vars=5):
-    return write_files(directory, [generate_typed_term(nb_nodes,nb_vars) for _ in range(5000)])
+    return write_files(directory, [generate_typed_term(nb_nodes,nb_vars) for _ in range(1000)])
 
 #generate_typed_terms("./typed_terms5000/funexpr/", 5000)
 
